@@ -1,0 +1,88 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<h1>
+{% if editMode %}
+     modification de produit
+{% else %}
+    Création d'un produit
+{% endif %}
+</h1>
+
+
+{{ form_start(formProduit, {
+    attr: {
+    novalidate: 'novalidate'
+    }
+})}}
+
+
+{{ form_row(formArticle.titre, {
+    label: "Titre",
+    attr: {
+        placeholder: "Titre de produit"
+    }
+}) }}
+{{ form_row(formproduit.description, {
+    label:"description",
+    attr: {
+        placeholder: "description de produit"
+    }
+}) }}
+
+{{ form_row(formArticle.couleur, {
+    label: "couleur",
+    attr: {
+        placeholder: "couleur de produit"
+    }
+}) }}
+
+{{ form_row(formArticle.taille, {
+    label: "taille",
+    attr: {
+        placeholder: "taille de produit"
+    }
+}) }}
+
+
+{{ form_row(formArticle.collection, {
+    label: "collection",
+    attr: {
+        placeholder: "collectionde produit"
+    }
+}) }}
+
+
+
+{{ form_row(formProduit.imageFile, {
+    label: "Ajouter un fichier"
+})}}
+
+
+
+
+{{ form_row(formArticle.prix, {
+    label: "prix",
+    attr: {
+        placeholder: "prix de produit"
+    }
+}) }}
+
+
+{{ form_row(formProduit.stock, {
+    label: "stock"
+})}}
+
+
+<button type="submit" class="btn btn-primary mt-2">
+{% if editMode %}
+    Enregistrer les modification
+{% else %}
+    Ajouter l'article
+{% endif %}
+</button>
+
+{{ form_end(formArticle)}}
+
+{% endblock %}

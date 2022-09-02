@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block title %}Hello ShopController!
+{% endblock %}
+
+{% block body %}
+
+
+<section class="row articles">
+		<produit class="col-md-6 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+			<h2>{{ produit.titre }}</h2>
+			<div class="metadata">
+				
+			<div class="descrption">
+				<img src="{{ asset('images/produits/' ~ produit.photo) }}" alt="" class="img-fluid">
+				<p>{{produit.description|raw }}</p>
+			</div>
+		</produit>
+        {% if app.user %}
+                    {# <a class="btn btn-primary" href="{{ path ('app_login') }}">connexion</a> #}
+
+        			<a href="" class="btn btn-primary">Réserver</a>
+            {% else %}
+                    <p>connectez-vous ou créer votre compte pour réserver</p>
+                <a class="btn btn-primary" href="{{ path ('app_register') }}">création de compte</a>
+
+					<a class="btn btn-primary" href="{{ path ('app_login') }}">connexion</a>
+	    {% endif %}
+    </section>

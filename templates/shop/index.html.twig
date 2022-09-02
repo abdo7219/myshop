@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('success') %}
+
+		<div class="alert alert-success text-center">{{ message }}</div>
+
+	{% endfor %}
+
+	{# app est un objet twig global qui contient beaucoup de données (session, flash, request ....#}
+
+	<section class="row produits">
+
+		{% for produit in tabProduits %}
+
+<div class="col-md-4">
+			<div class="card mb-3" style="width: 18rem;">
+				<h3 class="card-header">{{ product.title }}</h3>
+					<img src="{{ asset('image/produits/' ~ produit.photo) }} " alt="img-fluid" class="img-fluid">
+				<div class="card-body">
+					<p class="card-text text-end fw-bold">{{ produit.prix}}</p>
+					<p class="card-text text-end fw-bold">{{ produit.description}}</p>
+
+				</div>
+				<div class="card-body text-end">
+					{# <a href="{{ path('cart_add', {id: product.id}) }}" class="card-link btn btn-primary">Ajouter au panier</a> #}
+
+				</div>
+			</div>
+
+		</div>
+			{# <produit {{produit.titre}} </h2>
+
+				<div class="metadata">gfrtyeudhd		
+					</div>
+				<div class="content">
+					<img src="{{ asset('image/produits/' ~ produit.photo) }} " alt="img-fluid" class="img-fluid">
+					{# asset() permet de  récupérer des assets (fichiers js, css, images, etc) dans le dossier public/ #}
+					<p></p>
+
+					{# <a href="{{ path('blog_show', {id:produit.id}) }}" class="btn btn-primary">afficher image</a> #}
+				{# </div>
+			</produit> #} 
+		</section>
+
+	{% endfor %}
+
+{% endblock %}
