@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ShopController extends AbstractController
 {
-    #[Route('/shop', name: 'app_shop')]
+    #[Route('/', name: 'app_shop')]
     public function index(ProduitRepository $repo): Response
     {
         $produits = $repo->findAll();
