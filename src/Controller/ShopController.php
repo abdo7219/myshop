@@ -22,6 +22,19 @@ class ShopController extends AbstractController
     }
 
 
+    // #[Route('/', name: 'home')]
+    // public function home(): Response
+    // {
+    //     return $this->render('blog/home.html.twig', [
+    //         'title' => 'Bienvenue dans MYSHOP',
+    //         'presentation' => 'presentation'
+    //     ]);
+    // }
+
+
+
+
+
     #[Route('/shop/new', name: 'shop_create')]
     #[Route('/shop/edit/{id}', name: 'shop_edit')]
 
@@ -48,7 +61,7 @@ class ShopController extends AbstractController
         // handleRequest() permet d'insérer les données du formulaire dans l'objet $article
         // elle permet aussi de faire des vérifs sur formulaires(quelle est la méthode? est ce que les champs sont tous rempli ? etc)
         
-        //dump($produit);
+        // dump($produit);
 
 if($form->isSubmitted() && $form->isValid())
 {

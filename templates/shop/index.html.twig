@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogController!
+{% block title %}
 {% endblock %}
 
 {% block body %}
@@ -13,9 +13,9 @@
 	{# app est un objet twig global qui contient beaucoup de données (session, flash, request ....#}
 
 	<section class="row produits">
+<div class="row">
 
 		{% for produit in tabProduits %}
-
 <div class="col-md-4">
 			<div class="card mb-3" style="width: 18rem;">
 				<h3 class="card-header">{{ produit.titre }}</h3>
@@ -31,6 +31,7 @@
 				</div>
 			</div>
 
+		</div>
 		</div>
 			{# <produit {{produit.titre}} </h2>
 

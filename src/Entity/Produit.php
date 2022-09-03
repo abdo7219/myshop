@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use App\Entity\Commande;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,9 +15,11 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
-/**
-* @Vich\Uploadable
-*/
+// #[Vich\Uploadable]
+
+// /**
+// * @Vich\Uploadable
+// */
 class Produit
 {
     #[ORM\Id]
@@ -49,7 +52,7 @@ class Produit
     private ?string $stock = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_enregistrement = null;
+    private ?DateTimeInterface $date_enregistrement = null;
 
     #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Commande::class)]
     private Collection $commandes;
@@ -57,9 +60,12 @@ class Produit
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $updated_at = null;
 
-/**
-* @Vich\UploadableField(mapping="articles", fileNameProperty="image")
- */
+     #[Vich\UploadableField(mapping:"produit", fileNameProperty:"image")]
+
+
+// /**
+// * @Vich\UploadableField(mapping="produit", fileNameProperty="image")
+//  */
 
     public function __construct()
     {
@@ -226,17 +232,17 @@ class Produit
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
+    // public function getUpdatedAt(): ?\DateTimeInterface
+    // {
+    //     return $this->updatedAt;
+    // }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
+    // public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    // {
+    //     $this->updatedAt = $updatedAt;
 
-        return $this;
-    }
+    //     return $this;
+    // }
     public function __toString()
     {
         return $this->title;
